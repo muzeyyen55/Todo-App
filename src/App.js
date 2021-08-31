@@ -22,10 +22,12 @@ function App() {
   const filterHandler = () => {
     switch (status) {
       case "completed":
-        setFilteredTodos(todos.filter((todo) => todo.completed === true));
+        const completedArr = todos.filter((todo) => todo.completed === true);
+        setFilteredTodos(completedArr);
         break;
       case "uncompleted":
-        setFilteredTodos(todos.filter((todo) => todo.completed === false));
+        const uncompletedArr = todos.filter((todo) => todo.completed === false);
+        setFilteredTodos(uncompletedArr);
         break;
       default:
         setFilteredTodos(todos);
@@ -58,7 +60,7 @@ function App() {
         setStatus={setStatus}
       />
       <TodoList
-        filterHandler={filteredTodos}
+        filteredTodos={filteredTodos}
         setTodos={setTodos}
         todos={todos}
       />
